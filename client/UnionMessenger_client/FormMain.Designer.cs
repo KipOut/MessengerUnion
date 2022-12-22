@@ -141,6 +141,7 @@
             this.email_RegBox.PlaceholderText = "                   Email";
             this.email_RegBox.Size = new System.Drawing.Size(384, 47);
             this.email_RegBox.TabIndex = 8;
+            this.email_RegBox.TextChanged += new System.EventHandler(this.email_RegBox_TextChanged);
             // 
             // button_register
             // 
@@ -169,6 +170,7 @@
             this.surnameBox.PlaceholderText = "   фамилия";
             this.surnameBox.Size = new System.Drawing.Size(181, 47);
             this.surnameBox.TabIndex = 7;
+            this.surnameBox.TextChanged += new System.EventHandler(this.surnameBox_TextChanged);
             // 
             // nameBox
             // 
@@ -181,6 +183,7 @@
             this.nameBox.PlaceholderText = "        имя";
             this.nameBox.Size = new System.Drawing.Size(186, 47);
             this.nameBox.TabIndex = 6;
+            this.nameBox.TextChanged += new System.EventHandler(this.nameBox_TextChanged);
             // 
             // password_RegBox
             // 
@@ -194,13 +197,14 @@
             this.password_RegBox.Size = new System.Drawing.Size(384, 47);
             this.password_RegBox.TabIndex = 5;
             this.password_RegBox.UseSystemPasswordChar = true;
+            this.password_RegBox.TextChanged += new System.EventHandler(this.password_RegBox_TextChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(162, 21);
+            this.label2.Location = new System.Drawing.Point(162, 37);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(264, 33);
             this.label2.TabIndex = 1;
@@ -258,7 +262,6 @@
             this.tail.Stretch = false;
             this.tail.TabIndex = 2;
             this.tail.Text = "menuStrip1";
-            this.tail.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // loginForm
             // 
@@ -268,8 +271,8 @@
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(581, 396);
             this.Controls.Add(this.tail);
-            this.Controls.Add(this.panel_Login);
             this.Controls.Add(this.panel_register);
+            this.Controls.Add(this.panel_Login);
             this.MainMenuStrip = this.tail;
             this.MaximizeBox = false;
             this.Name = "loginForm";
@@ -277,8 +280,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.Activated += new System.EventHandler(this.loginForm_Activated);
-            this.Load += new System.EventHandler(this.loginForm_Load);
-            this.Enter += new System.EventHandler(this.loginForm_Enter);
             this.panel_Login.ResumeLayout(false);
             this.panel_Login.PerformLayout();
             this.panel_register.ResumeLayout(false);

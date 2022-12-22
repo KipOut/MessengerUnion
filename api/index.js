@@ -7,3 +7,4 @@ app.use(express.json())
 app.use('/union', userRouter)
 
 app.listen(port, () => console.log(port))
+

@@ -15,6 +15,9 @@ namespace UnionMessenger_client
     {
         static HttpClient client = new HttpClient();
         messenger formMain = new messenger();
+        FormCode formCode = new FormCode();
+        static public string emailText, passwordText, nameText, surnameText;
+        static public bool isReg = false;
         public loginForm()
         {
             InitializeComponent();
@@ -34,9 +37,14 @@ namespace UnionMessenger_client
                     initials = nameBox.Text + " " + surnameBox.Text
                 }), Encoding.UTF8, "application/json");
 
-                var result = await client.PostAsync("http://localhost:8080/union/signUpUser", content);
+                var result = await client.PostAsync("http://localhost:8080/union/signUpUser/0", content);
                 string resultContent = await result.Content.ReadAsStringAsync();
-                MessageBox.Show(resultContent);
+                if (resultContent == "¬ведите код")
+                {
+                    formCode.Show();
+                    panel_register.Enabled = false;
+                    tail.Enabled = false;
+                }
             }
             else
             {
@@ -115,10 +123,6 @@ namespace UnionMessenger_client
         private void button_register_Click(object sender, EventArgs e)
         {
             SignUpUser();
-            email_RegBox.Text = null;
-            password_RegBox.Text = null;
-            nameBox.Text = null;
-            surnameBox.Text = null;
         }
 
         private void button_enter_Click(object sender, EventArgs e)
@@ -126,24 +130,38 @@ namespace UnionMessenger_client
             SignInUser();
         }
 
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        private void surnameBox_TextChanged(object sender, EventArgs e)
         {
-
+            surnameText = surnameBox.Text;
         }
 
-        private void loginForm_Load(object sender, EventArgs e)
+        private void password_RegBox_TextChanged(object sender, EventArgs e)
         {
-            
+            passwordText = password_RegBox.Text;
         }
 
-        private void loginForm_Enter(object sender, EventArgs e)
+        private void nameBox_TextChanged(object sender, EventArgs e)
         {
+            nameText = nameBox.Text;
+        }
 
+        private void email_RegBox_TextChanged(object sender, EventArgs e)
+        {
+            emailText = email_RegBox.Text;
         }
 
         private void loginForm_Activated(object sender, EventArgs e)
         {
             Connect();
+            if (isReg)
+            {
+                panel_register.Enabled = true;
+                tail.Enabled = true;
+                email_RegBox.Text = null;
+                password_RegBox.Text = null;
+                nameBox.Text = null;
+                surnameBox.Text = null;
+            }
         }
     }
 }

@@ -16,3 +16,4 @@ C:\Users\netbo\Desktop\UnionMessenger\client\UnionMessenger_client\obj\Debug\net
 C:\Users\netbo\Desktop\UnionMessenger\client\UnionMessenger_client\obj\Debug\net7.0-windows7.0\ref\UnionMessenger_client.dll
 C:\Users\netbo\Desktop\UnionMessenger\client\UnionMessenger_client\obj\Debug\net7.0-windows7.0\UnionMessenger_client.loginForm.resources
 C:\Users\netbo\Desktop\UnionMessenger\client\UnionMessenger_client\obj\Debug\net7.0-windows7.0\UnionMessenger_client.messenger.resources
+C:\Users\netbo\Desktop\UnionMessenger\client\UnionMessenger_client\obj\Debug\net7.0-windows7.0\UnionMessenger_client.FormCode.resources

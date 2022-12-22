@@ -3,7 +3,7 @@ const router = new Router()
 const userController = require('../controller/user.controller')
 
 router.post('/checkConnect', userController.checkOnline)
-router.post('/signUpUser', userController.signUpUser)
+router.post('/signUpUser/:code', userController.signUpUser)
 router.post('/signInUser', userController.signInUser)
 router.get('/connect', userController.connect)
 router.get('/userName/:email', userController.dataUserName)
